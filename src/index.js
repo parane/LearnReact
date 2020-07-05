@@ -4,14 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-var app1 =  (
-  <div>
-    <App name="max"/>
-    <App name="max2"/>
-    </div>
-);
+
 ReactDOM.render(
-    app1,
+    <App/>,
   document.getElementById('root')
 );
 
