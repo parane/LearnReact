@@ -32,8 +32,6 @@ class App  extends Component {
       <h1>Hello</h1>
       <button onClick={this.switchNameHandler}>Click Me </button>
       <Person name={this.state.Person[0].name}/>
-      <Person name={this.state.Person[1].name}/>
-      <Person name={this.state.Person[2].name}>Hobby is </Person>
     </div>
   ); 
 
