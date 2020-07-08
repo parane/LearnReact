@@ -1,6 +1,11 @@
 import React, {useState}  from 'react';
+import './Person.css';
 
 const Person = (props) => {
+
+  const style = {
+    backgroundColor : 'white'
+  }
 
   const [personState, setPersonState] =  useState({
       Person :[
@@ -23,11 +28,12 @@ const Person = (props) => {
   }
 
     return  (
-    <div>    
+    <div className="Person">    
     <p>Name {props.name} </p>
     <p>{props.children}</p>
-    <button onClick={switchNameHandler}>Click Child </button>
+    <button style={style} onClick={switchNameHandler}>Click Child </button>
     <p>Internal Property: {personState.Person[0].name}</p>
+    <input type="text" onChange={props.changed} value={props.name}/>
     </div>
     );
 }
