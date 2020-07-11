@@ -25,6 +25,17 @@ class App  extends Component {
   }
 
 
+changeHandler = (event, index) =>{
+    console.log('Name Change !!!');
+    const person1 = { ...this.state.Person[index]};
+    person1.name = event.target.value;
+    const persons = [...this.state.Person] 
+    persons[index] = person1;
+    this.setState({
+     Person: persons
+    });
+  
+  }
  deleteHandler = (index) => {
        console.log('Button Clicked !!!');
        const persons = this.state.Person;
@@ -41,7 +52,10 @@ class App  extends Component {
  let person = null;
  if(this.state.showPerson){
    person  = (<div>
-      {this.state.Person.map ((person,index) => {return <Person name={person.name} click={() => this.deleteHandler(index)} key ={index}/>;} )
+      {this.state.Person.map ((person,index) => {return <Person name={person.name} 
+                                                                change={(event) => this.changeHandler(event,index)}
+                                                                key ={index} />
+                                                                ;} )
       
       }
    </div>); 

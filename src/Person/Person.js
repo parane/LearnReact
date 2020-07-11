@@ -30,9 +30,9 @@ const Person = (props) => {
     return  (
     <div className="Person">    
     <p>Name {props.name} </p>
-    <button style={style} onClick={props.click}>Click Child </button>
+    <button style={style} >Click Child </button>
     <p>Internal Property: {personState.Person[0].name}</p>
-    <input type="text" value={props.name}/>
+    <input type="text" value={props.name} onChange={props.change}/>
     </div>
     );
 }
