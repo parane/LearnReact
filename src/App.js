@@ -41,7 +41,7 @@ class App  extends Component {
  let person = null;
  if(this.state.showPerson){
    person  = (<div>
-      {this.state.Person.map (person => {return <Person name={person.name} click={this.deleteHandler}/>;} )
+      {this.state.Person.map ((person,index) => {return <Person name={person.name} click={() => this.deleteHandler(index)} key ={index}/>;} )
       
       }
    </div>); 
