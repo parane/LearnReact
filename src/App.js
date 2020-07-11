@@ -3,6 +3,7 @@ import './App.css';
 import Person from './Person/Person'
 
 
+
 class App  extends Component {
 
   state = {
@@ -11,37 +12,30 @@ class App  extends Component {
       {name:'Parane2',age:12},
       {name:'Parane3',age:12}
     ],
-    OtherState:'anytho'
+    OtherState:'anytho',
+    showPerson: true
   };
 
-  switchNameHandler = (newName) =>{
+  showMeHandler = () =>{
     console.log('Button Clicked !!!');
+    const isShow = this.state.showPerson;
     this.setState({
-      Person :[
-      {name:newName,age:12},
-      {name:'Parane2',age:12},
-      {name:'Parane3',age:12}
-    ]
-    });
+      showPerson: !isShow
+    })
   }
 
-nameChangeHandler = (event) => {
-this.setState({
-      Person :[
-      {name:event.target.value,age:12},
-      {name:'Parane2',age:12},
-      {name:'Parane3',age:12}
-    ]
-    });
-}
+
 
  render(){
  return (
     <div className="App">
       <h1>Hello</h1>
-      <button onClick={this.switchNameHandler.bind(this,'Bind')}>Click Bind </button>
-      <button onClick={() => this.switchNameHandler('Fun')}>Click Fun </button>
+      <button onClick={this.showMeHandler}>Show me</button>
+      { this.state.showPerson ? 
+      <div>
       <Person name={this.state.Person[0].name} changed ={this.nameChangeHandler}/>
+      </div> : null 
+      }
     </div>
   ); 
 
