@@ -25,13 +25,23 @@ class App  extends Component {
   }
 
 
+ deleteHandler = (index) => {
+       console.log('Button Clicked !!!');
+       const persons = this.state.Person;
+       persons.splice(index,1);
+       this.setState({
+         Person : persons
+       });
+
+ }
+
 
  render(){
  
  let person = null;
  if(this.state.showPerson){
    person  = (<div>
-      {this.state.Person.map (person => {return <Person name={person.name} changed ={this.nameChangeHandler}/>;} )
+      {this.state.Person.map (person => {return <Person name={person.name} click={this.deleteHandler}/>;} )
       
       }
    </div>); 
