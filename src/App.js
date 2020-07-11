@@ -31,7 +31,9 @@ class App  extends Component {
  let person = null;
  if(this.state.showPerson){
    person  = (<div>
-      <Person name={this.state.Person[0].name} changed ={this.nameChangeHandler}/>
+      {this.state.Person.map (person => {return <Person name={person.name} changed ={this.nameChangeHandler}/>;} )
+      
+      }
    </div>); 
  }
 
