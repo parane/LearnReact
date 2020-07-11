@@ -27,15 +27,19 @@ class App  extends Component {
 
 
  render(){
+ 
+ let person = null;
+ if(this.state.showPerson){
+   person  = (<div>
+      <Person name={this.state.Person[0].name} changed ={this.nameChangeHandler}/>
+   </div>); 
+ }
+
  return (
     <div className="App">
       <h1>Hello</h1>
       <button onClick={this.showMeHandler}>Show me</button>
-      { this.state.showPerson ? 
-      <div>
-      <Person name={this.state.Person[0].name} changed ={this.nameChangeHandler}/>
-      </div> : null 
-      }
+      {person}
     </div>
   ); 
 
